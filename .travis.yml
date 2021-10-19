@@ -16,6 +16,3 @@ script:
   - mix credo --strict
   - mix sobelow --config
   - mix coveralls.json
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
