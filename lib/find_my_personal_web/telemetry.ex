@@ -1,4 +1,7 @@
 defmodule FindMyPersonalWeb.Telemetry do
+  @moduledoc """
+  This module telemetry
+  """
   use Supervisor
   import Telemetry.Metrics
 

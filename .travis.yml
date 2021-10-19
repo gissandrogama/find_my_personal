@@ -1,0 +1,18 @@
+sudo: required
+language: elixir
+elixir:
+  - 1.12
+opt_release:
+  - 24.0
+
+addons:
+  postgres: '9.4'
+
+services:
+  - postgresql
+
+script:
+  - mix format --check-formatted --dry-run
+  - mix credo --strict
+  - mix sobelow --config
+  - mix coveralls.json
