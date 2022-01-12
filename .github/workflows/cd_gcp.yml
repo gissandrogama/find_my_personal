@@ -36,5 +36,6 @@ jobs:
 
       # deploy image
       - name: Deploy Docker image
-        script: sh deploy.sh
+        shell: bash
+        run: ${{ github.action_path }}/deploy.sh
 
