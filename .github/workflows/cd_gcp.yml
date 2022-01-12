@@ -1,4 +1,4 @@
-name: CD GCP
+name: GCP CD
 
 on:
   push:
