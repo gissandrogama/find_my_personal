@@ -2,6 +2,8 @@
 
 [![Build Status](https://app.travis-ci.com/gissandrogama/find_my_personal.svg?branch=main)](https://app.travis-ci.com/gissandrogama/find_my_personal)
 
+[![codecov](https://codecov.io/gh/gissandrogama/find_my_personal/branch/main/graph/badge.svg?token=F7IFFEbNIm)](https://codecov.io/gh/gissandrogama/find_my_personal)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
