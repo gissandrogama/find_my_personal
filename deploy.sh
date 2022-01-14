@@ -1,5 +1,7 @@
 echo "--------------START BUILD----------------------"
 set -ex;
+  docker build -t "${IMAGE}:$SHA" . && \
+  docker push "${IMAGE}:$SHA" && \
   gcloud beta run deploy "${CLOUD_RUN_SERVICE}" \
     --set-env-vars DATABASE_URL=$DATABASE_URL \
     --set-env-vars SECRET_KEY_BASE=$SECRET_KEY_BASE \
