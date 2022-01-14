@@ -33,11 +33,11 @@ jobs:
 
       # build image
       - name: Build Docker image
-        run: docker build -t $IMAGE_NAME:$SHA .
+        run: docker build -t ${IMAGE_NAME}:$SHA .
 
       # push image to registry
       - name: Push Docker image
-        run: docker push $IMAGE_NAME:$SHA
+        run: docker push ${IMAGE_NAME}:$SHA
 
       # deploy image
       - name: Deploy Docker image
