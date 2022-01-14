@@ -10,7 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: gcp-cd-prod
     env:
-      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/site:latest
+      global:
+        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+        IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/find_my_personal
+        CLOUD_RUN_SERVICE:  wired-column-325821
+        CLOUD_RUN_REGION: us-cetral1
+        CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+        SHA=$(git rev-parse HEAD)
     steps:
       # Git checkout
       - name: Checkout
@@ -36,5 +42,6 @@ jobs:
 
       # deploy image
       - name: Deploy Docker image
-        run: gcloud run deploy site --image $IMAGE_NAME --region us-central1 --memory 128Mi --min-instances 0 --max-instances 1 --set-env-vars POOL_SIZE 2 --set-env-vars SECRET_KEY_BASE $SECRET_KEY_BASE --set-env-vars DATABASE_URL $DATABASE_URL --platform managed --allow-unauthenticated
+        shell: bash
+        run: ${{ github.action_path }}/deploy.sh
 
