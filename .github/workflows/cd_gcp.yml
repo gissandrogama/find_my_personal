@@ -1,4 +1,4 @@
-name: CD
+name: CD GCP
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
         CLOUD_RUN_SERVICE:  wired-column-325821
         CLOUD_RUN_REGION: us-cetral1
         CLOUDSDK_CORE_DISABLE_PROMPTS: 1
-        SHA=$(git rev-parse HEAD)
+        SHA: $(git rev-parse HEAD)
     steps:
       # Git checkout
       - name: Checkout
