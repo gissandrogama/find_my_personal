@@ -47,8 +47,8 @@ jobs:
           --platform managed \
           --region $CLOUD_RUN_REGION \
           --allow-unauthenticated \
-          --port 4000
           --set-env-vars DATABASE_URL=$DATABASE_URL \
+          --set-env-vars PORT=$PORT \
           --set-env-vars SECRET_KEY_BASE=$SECRET_KEY_BASE \
           --set-env-vars POOL_SIZE="2"
 
