@@ -11,7 +11,7 @@ jobs:
     environment: gcp-cd-prod
     env:
       global:
-        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+        GCP_PROJECT_ID: wired-column-325821
         IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/find_my_personal
         CLOUD_RUN_SERVICE:  wired-column-325821
         CLOUD_RUN_REGION: us-cetral1
