@@ -42,5 +42,5 @@ jobs:
       # deploy image
       - name: Deploy Docker image
         shell: bash
-        run: ./deploy.sh
+        run: chmod +x ./deploy.sh
 
