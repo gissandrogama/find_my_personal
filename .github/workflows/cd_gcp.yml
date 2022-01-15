@@ -43,10 +43,12 @@ jobs:
       - name: Deploy Docker image
         run: |
           gcloud beta run deploy $CLOUD_RUN_SERVICE \
+          --set-env-vars DATABASE_URL=$DATABASE_URL \
+          --set-env-vars SECRET_KEY_BASE=$SECRET_KEY_BASE \
+          --set-env-vars POOL_SIZE="2" \
           --image $IMAGE_NAME \
           --platform managed \
           --region $CLOUD_RUN_REGION \
-          --port 80 \
           --allow-unauthenticated
 
 
