@@ -1,6 +1,8 @@
 # FindMyPersonal
 
-[![Build Status](https://app.travis-ci.com/gissandrogama/find_my_personal.svg?branch=main)](https://app.travis-ci.com/gissandrogama/find_my_personal)
+[![ELIXIR CI](https://github.com/gissandrogama/find_my_personal/actions/workflows/elixir_ci.yml/badge.svg)](https://github.com/gissandrogama/find_my_personal/actions/workflows/elixir_ci.yml)
+
+[![CD GCP](https://github.com/gissandrogama/find_my_personal/actions/workflows/cd_gcp.yml/badge.svg)](https://github.com/gissandrogama/find_my_personal/actions/workflows/cd_gcp.yml)
 
 [![codecov](https://codecov.io/gh/gissandrogama/find_my_personal/branch/main/graph/badge.svg?token=F7IFFEbNIm)](https://codecov.io/gh/gissandrogama/find_my_personal)
 
