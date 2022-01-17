@@ -19,7 +19,7 @@ defmodule FindMyPersonalWeb.Router do
     get "/", PageController, :index
   end
 
-  #Other scopes may use custom stacks.
+  # Other scopes may use custom stacks.
   scope "/api", FindMyPersonalWeb do
     pipe_through :api
 

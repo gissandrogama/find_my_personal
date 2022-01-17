@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.Teachers.Teacher do
+  @moduledoc """
+  Module that prepares and validates personal data
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
