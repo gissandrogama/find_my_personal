@@ -1,0 +1,57 @@
+name: CD GCP
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Setup Gcloud Account
+    runs-on: ubuntu-latest
+    environment: gcp-cd-prod
+    env:
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/find_my_personal
+      CLOUD_RUN_SERVICE: wired-column-325821
+      CLOUD_RUN_REGION: us-central1
+      CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+      SHA: $(git rev-parse HEAD)
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+
+    steps:
+      # Git checkout
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Login to GCP
+      - uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      # gcloud configure docker
+      - name: Configure Docker
+        run: gcloud auth configure-docker --quiet
+
+      # build image
+      - name: Build Docker image
+        run: docker build -t $IMAGE_NAME .
+
+      # push image to registry
+      - name: Push Docker image
+        run: docker push $IMAGE_NAME
+
+      # deploy image
+      - name: Deploy Docker image
+        run: |
+          gcloud beta run deploy $CLOUD_RUN_SERVICE \
+          --set-env-vars DATABASE_URL=$DATABASE_URL \
+          --set-env-vars SECRET_KEY_BASE=$SECRET_KEY_BASE \
+          --set-env-vars POOL_SIZE="2" \
+          --image $IMAGE_NAME \
+          --platform managed \
+          --region $CLOUD_RUN_REGION \
+          --allow-unauthenticated
+
+
