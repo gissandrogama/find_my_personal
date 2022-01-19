@@ -16,6 +16,7 @@ defmodule FindMyPersonalWeb.Router do
   scope "/", FindMyPersonalWeb do
     pipe_through :browser
 
+    get "/teacher", TeacherController, :index
     get "/", PageController, :index
   end
 
