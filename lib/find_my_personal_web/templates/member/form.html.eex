@@ -14,7 +14,7 @@
   <%= error_tag f, :email %>
 
   <%= label f, :birth_date %>
-  <%= date_select f, :birth_date %>
+  <%= date_input f, :birth_date %>
   <%= error_tag f, :birth_date %>
 
   <%= label f, :blood %>
