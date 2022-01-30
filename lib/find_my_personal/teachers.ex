@@ -85,8 +85,9 @@ defmodule FindMyPersonal.Teachers do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_teacher(%Teacher{} = teacher) do
-    Repo.delete(teacher)
+  def delete_teacher(id) do
+    get_teacher!(id)
+    |> Repo.delete()
   end
 
   @doc """

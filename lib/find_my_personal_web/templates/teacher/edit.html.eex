@@ -1,0 +1,2 @@
+<h1>Editar Perfil</h1>
+<%= render "form.html", Map.put(assigns, :action, Routes.teacher_path(@conn, :update, @teacher)) %>
