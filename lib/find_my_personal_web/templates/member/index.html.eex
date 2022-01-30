@@ -1,36 +1,35 @@
-<h1>Listing Members</h1>
+<ul class="collection with-header">
+  <li class="collection-header">
+    <h4>Listing Members</h4>
+  </li>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Birth date</th>
-      <th>Blood</th>
-      <th>Height</th>
-      <th>Weight</th>
+  <%= for member <- @members do %>
+  <li class="collection-item avatar">
+    <img src="<%= member.blood %>" alt="" class="circle">
+    <span class="title"><%= member.name %></span>
+    <p><%= member.height %></p>
+    <div class="secondary-content">
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for member <- @members do %>
-    <tr>
-      <td><%= member.name %></td>
-      <td><%= member.email %></td>
-      <td><%= member.birth_date %></td>
-      <td><%= member.blood %></td>
-      <td><%= member.height %></td>
-      <td><%= member.weight %></td>
+      <%= link to: Routes.member_path(@conn, :edit, member) do %>
+      <i class="material-icons green-text">edit</i>
+      <% end %>
 
-      <td>
-        <span><%= link "Show", to: Routes.member_path(@conn, :show, member) %></span>
-        <span><%= link "Edit", to: Routes.member_path(@conn, :edit, member) %></span>
-        <span><%= link "Delete", to: Routes.member_path(@conn, :delete, member), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+      <%= link to: Routes.member_path(@conn, :show, member) do %>
+      <i class="material-icons blue-text">person</i>
+      <% end %>
 
-<span><%= link "New Member", to: Routes.member_path(@conn, :new) %></span>
+      <%= link to: Routes.member_path(@conn, :delete, member), method: :delete, data: [confirm: "
+    Do you want to delete a member?"] do %>
+      <i class="material-icons red-text">delete</i>
+      <% end %>
+
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<div class="fixed-action-btn">
+  <%= link to: Routes.member_path(@conn, :new), class: "btn-floating btn-large red" do  %>
+  <i class="large material-icons">add</i>
+  <% end %>
+</div>
