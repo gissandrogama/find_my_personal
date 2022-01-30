@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.Members.Member do
+  @moduledoc """
+  module that handles the data structure of members
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
