@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col s12 m7">
+    <div class="card hoverable">
+      <div class="card-image">
+        <img src="<%= @teacher.avatar_url %>" alt="" class="responsive-img">
+        <span class="card-title"><%= @teacher.name %></span>
+      </div>
+      <div class="card-content">
+        <p class="grey-text text-darken-2">
+          <%= @teacher.education_level %>
+        </p>
+        <p class="grey-text text-darken-2">
+          <%= @teacher.birth_date %>
+        </p>
+        <p class="grey-text text-darken-2">
+          <%=  @teacher.class_type %>
+        </p>
+
+        <%= link to: Routes.teacher_path(@conn, :index), class: "btn-floating left waves-effect" do  %>
+        <i class="material-icons">chevron_left</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
