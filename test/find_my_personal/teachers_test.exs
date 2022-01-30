@@ -77,9 +77,9 @@ defmodule FindMyPersonal.TeachersTest do
     end
 
     test "delete_teacher/1 deletes the teacher" do
-      teacher = teacher_fixture()
-      assert {:ok, %Teacher{}} = Teachers.delete_teacher(teacher)
-      assert_raise Ecto.NoResultsError, fn -> Teachers.get_teacher!(teacher.id) end
+      %{id: id} = teacher_fixture()
+      assert {:ok, %Teacher{}} = Teachers.delete_teacher(id)
+      assert_raise Ecto.NoResultsError, fn -> Teachers.get_teacher!(id) end
     end
 
     test "change_teacher/1 returns a teacher changeset" do

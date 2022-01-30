@@ -18,7 +18,7 @@ defmodule FindMyPersonal.Teachers.Teacher do
   end
 
   @doc false
-  def changeset(teacher, attrs) do
+  def changeset(teacher, attrs \\ %{}) do
     teacher
     |> cast(attrs, [:avatar_url, :name, :birth_date, :education_level, :class_type])
     |> validate_required([:avatar_url, :name, :birth_date, :education_level, :class_type])

@@ -27,3 +27,9 @@
   </li>
   <% end %>
 </ul>
+
+<div class="fixed-action-btn">
+  <%= link to: Routes.teacher_path(@conn, :new), class: "btn-floating btn-large red" do  %>
+  <i class="large material-icons">add</i>
+  <% end %>
+</div>
