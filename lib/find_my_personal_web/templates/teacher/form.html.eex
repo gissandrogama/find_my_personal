@@ -12,7 +12,7 @@
     <div class="row">
       <div class="input-field col s12">
         <%= label f, :birth_date, for: "birth date" %>
-        <%= text_input f, :birth_date, id: "birth date", class: "materialize-textarea" %>
+        <%= text_input f, :birth_date, id: "birth date", class: "datepicker" %>
         <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :description %></span>
       </div>
     </div>
