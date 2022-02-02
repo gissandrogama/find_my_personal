@@ -31,7 +31,7 @@
 </ul>
 
 <div class="fixed-action-btn">
-  <%= link to: Routes.teacher_path(@conn, :new), class: "btn-floating btn-large red" do  %>
+  <%= link to: Routes.teacher_path(@conn, :new), class: "btn-floating btn-large deep-orange darken-3" do  %>
   <i class="large material-icons">add</i>
   <% end %>
 </div>
