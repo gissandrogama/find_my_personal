@@ -30,9 +30,11 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input col s12">
         <%= label f, :blood, for: "Blood" %>
-        <%= text_input f, :blood, id: "blood", class: "validate" %>
+        <%= select f, :blood,
+          ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"], class: "validate",
+          prompt: "Tipo sanguineo" %>
         <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :blood %></span>
       </div>
     </div>
@@ -40,7 +42,7 @@
     <div class="row">
       <div class="input-field col s12">
         <%= label f, :height, for: "Height" %>
-        <%= text_input f, :height, id: "height", class: "validate" %>
+        <%= number_input f, :height, id: "height", class: "validate", placeholder: "Altura em (cm)" %>
         <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :height %></span>
       </div>
     </div>
@@ -48,7 +50,7 @@
     <div class="row">
       <div class="input-field col s12">
         <%= label f, :weight, for: "Weight" %>
-        <%= text_input f, :weight, id: "weight", class: "validate" %>
+        <%= number_input f, :weight, id: "weight", class: "validate", placeholder: "Peso em (kg)" %>
         <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :weight %></span>
       </div>
     </div>
