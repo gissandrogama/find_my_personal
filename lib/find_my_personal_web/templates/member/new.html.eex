@@ -1,0 +1,5 @@
+<h1>New Member</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.member_path(@conn, :create)) %>
+
+<%= link "Back", to: Routes.teacher_path(@conn, :index), class: "waves-effect waves-light btn-large black" %>

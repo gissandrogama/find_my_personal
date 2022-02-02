@@ -6,16 +6,33 @@
         <span class="card-title"><%= @teacher.name %></span>
       </div>
       <div class="card-content">
+        <strong class="grey-text text-darken-3">
+          Data de nascimento:
+        </strong>
+        <p class="grey-text text-darken-2">
+          <%= FindMyPersonal.Teachers.Utils.date_convert_br(@teacher.birth_date) %>
+        </p>
+        <strong class="grey-text text-darken-3">
+          Idade:
+        </strong>
+        <p class="grey-text text-darken-2">
+          <%= FindMyPersonal.Teachers.Utils.get_age(@teacher.birth_date) %>
+        </p>
+        <strong class="grey-text text-darken-3">
+          Tipo de aulas:
+        </strong>
+        <%= for tipo <- String.split(@teacher.class_type) do %>
+        <p class="chip grey-text text-darken-2">
+          <%=  tipo %>
+        </p>
+        <% end %>
+        <br>
+        <strong class="grey-text text-darken-3">
+          Nível acadêmico:
+        </strong>
         <p class="grey-text text-darken-2">
           <%= @teacher.education_level %>
         </p>
-        <p class="grey-text text-darken-2">
-          <%= @teacher.birth_date %>
-        </p>
-        <p class="grey-text text-darken-2">
-          <%=  @teacher.class_type %>
-        </p>
-
         <%= link to: Routes.teacher_path(@conn, :index), class: "btn-floating left waves-effect" do  %>
         <i class="material-icons">chevron_left</i>
         <% end %>

@@ -3,6 +3,16 @@
 // its own CSS file.
 import "../css/app.scss"
 import "../node_modules/materialize-css/dist/js/materialize"
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(elems, {});
+
+  var elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems, {});
+});
+
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".

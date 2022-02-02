@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col s12 m7">
+    <div class="card hoverable">
+      <div class="card-image">
+        <img src="<%= @member.name %>" alt="" class="responsive-img">
+        <span class="card-title"><%= @member.name %></span>
+      </div>
+      <div class="card-content">
+        <p class="grey-text text-darken-2">
+          <%= @member.height %>
+        </p>
+        <p class="grey-text text-darken-2">
+          <%= @member.birth_date %>
+        </p>
+        <p class="grey-text text-darken-2">
+          <%=  @member.weight %>
+        </p>
+
+        <p class="grey-text text-darken-2">
+          <%= @member.email %>
+        </p>
+
+        <%= link to: Routes.member_path(@conn, :index), class: "btn-floating left waves-effect" do  %>
+        <i class="material-icons">chevron_left</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
