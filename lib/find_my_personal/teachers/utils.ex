@@ -12,11 +12,11 @@ defmodule FindMyPersonal.Teachers.Utils do
 
   @spec date_convert_br(date) :: integer
   def get_age(date) do
-    today = Date.utc_today
+    today = Date.utc_today()
     age = today.year - date.year
     month = today.month - date.month
 
-    case month < 0 || (month == 0 && today.day <= date.day ) do
+    case month < 0 || (month == 0 && today.day <= date.day) do
       true -> age - 1
       false -> age
     end
