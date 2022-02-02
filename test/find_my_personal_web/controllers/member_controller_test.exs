@@ -48,7 +48,7 @@ defmodule FindMyPersonalWeb.MemberControllerTest do
       assert redirected_to(conn) == Routes.member_path(conn, :show, id)
 
       conn = get(conn, Routes.member_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Member"
+      assert html_response(conn, 200) =~ "Member created successfully."
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -74,7 +74,7 @@ defmodule FindMyPersonalWeb.MemberControllerTest do
       assert redirected_to(conn) == Routes.member_path(conn, :show, member)
 
       conn = get(conn, Routes.member_path(conn, :show, member))
-      assert html_response(conn, 200) =~ "some updated blood"
+      assert html_response(conn, 200) =~ "Member updated successfully."
     end
 
     test "renders errors when data is invalid", %{conn: conn, member: member} do
