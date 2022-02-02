@@ -1,48 +1,48 @@
+<%= form_for @changeset, @action, fn f -> %>
 <div class="row">
-  <div class="col s12">
-    <%= form_for @changeset, @action, fn f -> %>
-    <div class="row">
-      <div class="input-field col s12">
-        <%= label f, :name, for: "Name" %>
-        <%= text_input f, :name, id: "name", class: "validade" %>
-        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :title %></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= label f, :birth_date, for: "birth date" %>
-        <%= text_input f, :birth_date, id: "birth date", class: "datepicker" %>
-        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :description %></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= label f, :education_level, for: "education level" %>
-        <%= text_input f, :education_level, id: "education level", class: "materialize-textarea" %>
-        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :description %></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= label f, :class_type, for: "class type" %>
-        <%= text_input f, :class_type, id: "class type", class: "materialize-textarea" %>
-        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :description %></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= label f, :avatar_url, for: "avatar url" %>
-        <%= text_input f, :avatar_url, id: "avatar url", class: "materialize-textarea" %>
-        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :description %></span>
-      </div>
-    </div>
-
-
-    <%= submit "Salvar", class: "waves-effect waves-light btn" %>
-    <% end %>
+  <div class="input-field col s12">
+    <%= label f, :name, for: "Name" %>
+    <%= text_input f, :name, class: "validate" %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :name %></span>
   </div>
 </div>
+
+<div class="row">
+  <div class="input col s12">
+    <%= label f, :birth_date, for: "birth date" %>
+    <%= date_input f, :birth_date, class: "validate" %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :birth_date %></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input col s12">
+    <%= label f, :education_level, for: "education level" %>
+    <%= select f, :education_level,
+            ["Ensino Médio Completo", "Ensino Superior completo", "Pós Graduação", "Mestrado", "Doutorado"],
+              prompt: "Escolha a formação" %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :education_level %></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <%= label f, :class_type, for: "class type" %>
+    <%= text_input f, :class_type, class: "validate" %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :class_type %></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="input-field col s12">
+    <%= label f, :avatar_url, for: "avatar url" %>
+    <%= url_input f, :avatar_url, class: "validate" %>
+    <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :avatar_url %></span>
+  </div>
+</div>
+
+
+<%= submit class: "waves-effect waves-light btn-large grey darken-3 right" do %>
+<i class="material-icons right">send</i>Salvar
+<% end %>
+<% end %>
