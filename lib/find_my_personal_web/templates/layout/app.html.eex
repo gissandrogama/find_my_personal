@@ -12,17 +12,7 @@
 </head>
 
 <body>
-
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">How it works</a></li>
-        <li><a href="#">Personals list </a></li>
-        <li><a href="#">Log in</a></li>
-      </ul>
-    </div>
-  </nav>
+  <%= render FindMyPersonalWeb.SharedView, "_menu.html", assigns %>
   <main role="main" class="container">
     <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

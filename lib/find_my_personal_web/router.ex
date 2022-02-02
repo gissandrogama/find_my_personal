@@ -16,6 +16,7 @@ defmodule FindMyPersonalWeb.Router do
   scope "/", FindMyPersonalWeb do
     pipe_through :browser
 
+    resources "/members", MemberController
     resources "/teacher", TeacherController
     get "/", PageController, :index
   end
@@ -24,6 +25,7 @@ defmodule FindMyPersonalWeb.Router do
   scope "/api", FindMyPersonalWeb.Api, as: :api do
     pipe_through :api
 
+    resources "/members", MemberController
     resources "/teacher", TeacherController, except: [:new, :edit]
   end
 
