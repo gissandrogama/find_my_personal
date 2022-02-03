@@ -6,16 +6,33 @@
         <span class="card-title"><%= @member.name %></span>
       </div>
       <div class="card-content">
+        <strong class="grey-text text-darken-3">
+          Altura:
+        </strong>
         <p class="grey-text text-darken-2">
-          <%= @member.height %>
+          <%= @member.height %> m
         </p>
+        <strong class="grey-text text-darken-3">
+          Data de nascimento:
+        </strong>
         <p class="grey-text text-darken-2">
           <%= @member.birth_date %>
         </p>
+        <strong class="grey-text text-darken-3">
+          Idade:
+        </strong>
         <p class="grey-text text-darken-2">
-          <%=  @member.weight %>
+          <%= FindMyPersonal.Teachers.Utils.get_age(@member.birth_date) %>
         </p>
-
+        <strong class="grey-text text-darken-3">
+          Peso:
+        </strong>
+        <p class="grey-text text-darken-2">
+          <%=  @member.weight %> kg
+        </p>
+        <strong class="grey-text text-darken-3">
+          Email:
+        </strong>
         <p class="grey-text text-darken-2">
           <%= @member.email %>
         </p>
