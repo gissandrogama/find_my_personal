@@ -10,7 +10,7 @@ defmodule FindMyPersonal.Teachers.Utils do
     "#{date.day}/#{date.month}/#{date.year}"
   end
 
-  @spec date_convert_br(date) :: integer
+  @spec get_age(date) :: integer
   def get_age(date) do
     today = Date.utc_today()
     age = today.year - date.year

@@ -3,6 +3,10 @@ defmodule FindMyPersonalWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ ""
+
+    assert redirected_to(conn) == Routes.teacher_path(conn, :index)
+
+    conn = get(conn, Routes.teacher_path(conn, :index))
+    assert html_response(conn, 200) =~ "All Personals"
   end
 end
