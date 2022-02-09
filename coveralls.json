@@ -5,7 +5,9 @@
     "lib/find_my_personal_web.ex",
     "lib/find_my_personal_web/views/error_helpers.ex",
     "test/support/data_case.ex",
-    "lib/find_my_personal_web/telemetry.ex"
+    "lib/find_my_personal_web/telemetry.ex",
+    "test/support/channel_case.ex",
+    "lib/find_my_personal_web/channels/user_socket.ex"
   ],
   "coverage_options": {
     "treat_no_relevant_lines_as_covered": true,
