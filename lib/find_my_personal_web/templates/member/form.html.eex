@@ -64,6 +64,15 @@
       </div>
     </div>
 
+     <div class="row">
+      <div class="input col s12">
+        <%= label f, :teacher_id, for: "Personal" %>
+        <%= select f, :teacher_id,
+          @teachers, class: "validate"%>
+        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :blood %></span>
+      </div>
+    </div>
+
     <%= submit class: "waves-effect waves-light btn-large grey darken-3 right" do %>
     <i class="material-icons right">send</i>Salvar
     <% end %>

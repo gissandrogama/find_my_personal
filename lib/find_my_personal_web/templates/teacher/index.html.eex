@@ -16,7 +16,10 @@
   <li class="collection-item avatar">
     <img src="<%= teacher.avatar_url %>" alt="" class="circle">
     <span class="title"><%= teacher.name %></span>
-    <p><%= teacher.education_level %></p>
+    <p><%= teacher.education_level %> <br>
+    <span class="badge blue white-text">
+     <%= FindMyPersonal.Members.count_members_teacher(teacher.id) %> Alunos</span>
+    </p>
     <div class="secondary-content">
 
 
