@@ -5,6 +5,8 @@ defmodule FindMyPersonal.Members.Member do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias FindMyPersonal.Teachers.Teacher
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "members" do
@@ -14,6 +16,9 @@ defmodule FindMyPersonal.Members.Member do
     field :height, :string
     field :name, :string
     field :weight, :string
+    field :avatar_url, :string
+
+    belongs_to :teacher, Teacher
 
     timestamps()
   end
@@ -21,7 +26,7 @@ defmodule FindMyPersonal.Members.Member do
   @doc false
   def changeset(member, attrs) do
     member
-    |> cast(attrs, [:name, :email, :birth_date, :blood, :height, :weight])
-    |> validate_required([:name, :email, :birth_date, :blood, :height, :weight])
+    |> cast(attrs, [:name, :email, :birth_date, :blood, :height, :weight, :avatar_url])
+    |> validate_required([:name, :email, :birth_date, :blood, :height, :weight, :avatar_url])
   end
 end

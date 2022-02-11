@@ -2,7 +2,7 @@
   <div class="col s12 m7">
     <div class="card hoverable">
       <div class="card-image">
-        <img src="<%= @member.name %>" alt="" class="responsive-img">
+        <img src="<%= @member.avatar_url %>" alt="" class="responsive-img">
         <span class="card-title"><%= @member.name %></span>
       </div>
       <div class="card-content">

@@ -22,6 +22,15 @@
     </div>
 
     <div class="row">
+      <div class="input-field col s12">
+        <%= label f, :avatar_url, for: "avatar url" %>
+        <%= url_input f, :avatar_url, class: "validate" %>
+        <span class="helper-text" data-error="wrong" data-success="right"><%= error_tag f, :avatar_url %></span>
+      </div>
+    </div>
+
+
+    <div class="row">
       <div class="input col s12">
         <%= label f, :birth_date, for: "Birth date" %>
         <%= date_input f, :birth_date, id: "birth_date", class: "validate" %>
