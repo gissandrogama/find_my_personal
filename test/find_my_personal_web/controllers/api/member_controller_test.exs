@@ -3,27 +3,10 @@ defmodule FindMyPersonalWeb.Api.MemberControllerTest do
 
   alias FindMyPersonal.Members
   alias FindMyPersonal.Members.Member
-
-  @create_attrs %{
-    birth_date: ~D[2010-04-17],
-    blood: "some blood",
-    email: "some email",
-    height: "some height",
-    name: "some name",
-    weight: "some weight"
-  }
-  @update_attrs %{
-    birth_date: ~D[2011-05-18],
-    blood: "some updated blood",
-    email: "some updated email",
-    height: "some updated height",
-    name: "some updated name",
-    weight: "some updated weight"
-  }
-  @invalid_attrs %{birth_date: nil, blood: nil, email: nil, height: nil, name: nil, weight: nil}
+  import FindMyPersonal.MemberFixture
 
   def fixture(:member) do
-    {:ok, member} = Members.create_member(@create_attrs)
+    {:ok, member} = Members.create_member(valid_attrs())
     member
   end
 
@@ -40,24 +23,25 @@ defmodule FindMyPersonalWeb.Api.MemberControllerTest do
 
   describe "create member" do
     test "renders member when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.api_member_path(conn, :create), member: @create_attrs)
+      conn = post(conn, Routes.api_member_path(conn, :create), member: valid_attrs())
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.api_member_path(conn, :show, id))
 
       assert %{
-               "id" => _id,
+               "avatar_url" => "http://imagens.com",
                "birth_date" => "2010-04-17",
-               "blood" => "some blood",
-               "email" => "some email",
-               "height" => "some height",
-               "name" => "some name",
-               "weight" => "some weight"
+               "blood" => "O+",
+               "email" => "some_email@email.com",
+               "height" => "168",
+               "id" => _,
+               "name" => "Teste",
+               "weight" => "75"
              } = json_response(conn, 200)["data"]
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.api_member_path(conn, :create), member: @invalid_attrs)
+      conn = post(conn, Routes.api_member_path(conn, :create), member: invalid_attrs())
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -66,24 +50,25 @@ defmodule FindMyPersonalWeb.Api.MemberControllerTest do
     setup [:create_member]
 
     test "renders member when data is valid", %{conn: conn, member: %Member{id: id} = member} do
-      conn = put(conn, Routes.api_member_path(conn, :update, member), member: @update_attrs)
+      conn = put(conn, Routes.api_member_path(conn, :update, member), member: update_attrs())
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.api_member_path(conn, :show, id))
 
       assert %{
-               "id" => _id,
-               "birth_date" => "2011-05-18",
-               "blood" => "some updated blood",
-               "email" => "some updated email",
-               "height" => "some updated height",
-               "name" => "some updated name",
-               "weight" => "some updated weight"
+               "birth_date" => "2010-04-17",
+               "blood" => "O+",
+               "email" => "some_email_update@email.com",
+               "height" => "168",
+               "id" => _,
+               "name" => "Teste update",
+               "weight" => "79",
+               "avatar_url" => "http://imagens.com"
              } = json_response(conn, 200)["data"]
     end
 
     test "renders errors when data is invalid", %{conn: conn, member: member} do
-      conn = put(conn, Routes.api_member_path(conn, :update, member), member: @invalid_attrs)
+      conn = put(conn, Routes.api_member_path(conn, :update, member), member: invalid_attrs())
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
