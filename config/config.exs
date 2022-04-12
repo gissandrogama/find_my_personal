@@ -27,6 +27,21 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# In your config/config.exs file
+config :find_my_personal, FindMyPersonal.Mail.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "smtp.mailtrap.io",
+  hostname: "smtp.mailtrap.io",
+  port: 2525,
+  username: "fe9abd96777363",
+  password: "75a1d5c7d9e917",
+  tls: :if_available,
+  allowed_tls_versions: [:tlsv1, :"tlsv1.1", :"tlsv1.2"],
+  ssl: false,
+  retries: 1,
+  no_mx_lookups: false,
+  auth: :cram_md5
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

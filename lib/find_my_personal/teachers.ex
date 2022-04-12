@@ -35,7 +35,7 @@ defmodule FindMyPersonal.Teachers do
     Repo.all(from t in Teacher, where: ilike(t.name, ^filter))
   end
 
-    @doc """
+  @doc """
   Returns the list of teacher.
 
   ## Examples

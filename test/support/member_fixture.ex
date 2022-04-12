@@ -1,4 +1,7 @@
 defmodule FindMyPersonal.MemberFixture do
+  @moduledoc """
+  this module
+  """
   alias FindMyPersonal.Members
   alias FindMyPersonal.Teachers
 
@@ -41,13 +44,13 @@ defmodule FindMyPersonal.MemberFixture do
   def member_fixture(attrs \\ %{}) do
     {:ok, member} =
       attrs
-      |> Enum.into(valid_attrs())
+      |> Enum.into(valid_attrs)
       |> Members.create_member()
 
     member
   end
 
-  def get_teacher() do
+  def get_teacher do
     {:ok, teacher} =
       %{
         avatar_url: "some_avatar_url",
@@ -58,6 +61,6 @@ defmodule FindMyPersonal.MemberFixture do
       }
       |> Teachers.create_teacher()
 
-      teacher.id
+    teacher.id
   end
 end

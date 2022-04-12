@@ -15,7 +15,7 @@ defmodule FindMyPersonalWeb.MemberController do
 
   def new(conn, _params) do
     changeset = Members.change_member(%Member{})
-    teachers = Teachers.list_all
+    teachers = Teachers.list_all()
     render(conn, "new.html", changeset: changeset, teachers: teachers)
   end
 
@@ -27,7 +27,7 @@ defmodule FindMyPersonalWeb.MemberController do
         |> redirect(to: Routes.member_path(conn, :show, member))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        teachers = Teachers.list_all
+        teachers = Teachers.list_all()
         render(conn, "new.html", changeset: changeset, teachers: teachers)
     end
   end
@@ -40,7 +40,7 @@ defmodule FindMyPersonalWeb.MemberController do
   def edit(conn, %{"id" => id}) do
     member = Members.get_member!(id)
     changeset = Members.change_member(member)
-    teachers = Teachers.list_all
+    teachers = Teachers.list_all()
     render(conn, "edit.html", member: member, changeset: changeset, teachers: teachers)
   end
 
@@ -54,7 +54,7 @@ defmodule FindMyPersonalWeb.MemberController do
         |> redirect(to: Routes.member_path(conn, :show, member))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        teachers = Teachers.list_all
+        teachers = Teachers.list_all()
         render(conn, "edit.html", member: member, changeset: changeset, teachers: teachers)
     end
   end

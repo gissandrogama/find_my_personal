@@ -26,7 +26,16 @@ defmodule FindMyPersonal.Members.Member do
   @doc false
   def changeset(member, attrs) do
     member
-    |> cast(attrs, [:name, :email, :birth_date, :blood, :height, :weight, :avatar_url, :teacher_id])
+    |> cast(attrs, [
+      :name,
+      :email,
+      :birth_date,
+      :blood,
+      :height,
+      :weight,
+      :avatar_url,
+      :teacher_id
+    ])
     |> validate_required([:name, :email, :birth_date, :blood, :height, :weight, :avatar_url])
     |> foreign_key_constraint(:teacher_id)
   end
