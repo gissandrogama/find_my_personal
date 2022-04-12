@@ -36,6 +36,19 @@ defmodule FindMyPersonal.Teachers do
   end
 
   @doc """
+  Returns the list of teacher.
+
+  ## Examples
+
+      iex> list_teacher(filter)
+      [%Teacher{}, ...]
+
+  """
+  def list_all do
+    Repo.all(from t in Teacher, select: {t.name, t.id})
+  end
+
+  @doc """
   Gets a single teacher.
 
   Raises `Ecto.NoResultsError` if the Teacher does not exist.

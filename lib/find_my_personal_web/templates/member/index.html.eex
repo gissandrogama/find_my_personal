@@ -13,7 +13,7 @@
 
   <%= for member <- @members do %>
   <li class="collection-item avatar">
-    <img src="<%= member.blood %>" alt="" class="circle">
+    <img src="<%= member.avatar_url %>" alt="" class="circle">
     <span class="title"><%= member.name %></span>
     <p><%= member.height %></p>
     <div class="secondary-content">

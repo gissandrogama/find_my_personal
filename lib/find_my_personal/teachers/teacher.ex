@@ -5,6 +5,8 @@ defmodule FindMyPersonal.Teachers.Teacher do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias FindMyPersonal.Members.Member
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "teacher" do
@@ -13,6 +15,8 @@ defmodule FindMyPersonal.Teachers.Teacher do
     field :class_type, :string
     field :education_level, :string
     field :name, :string
+
+    has_many :members, Member
 
     timestamps()
   end
